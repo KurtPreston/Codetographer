@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Codetographer"
+            id="codetographer.commands.category">
+      </category>
+      <command
+            name="Sync Package Structure"
+            categoryId="codetographer.commands.category"
+            id="codetographer.commands.syncPackageStructure">
+      </command>
+   </extension>
+   
+  <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="codetographer.commands.syncPackageStructure"
+            class="codetographer.handlers.PackageStructureSync">
+      </handler>
+   </extension>
+   
+      <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="codetographer.commands.syncPackageStructure"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+7"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Codetographer"
+            id="Codetographer">
+      </category>
+      <view
+            allowMultiple="false"
+            category="Codetographer"
+            class="codetographer.views.EcumeneView"
+            icon="icons/Codetographer.gif"
+            id="codetographer.views.EcumeneView"
+            name="Codetographer Map">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.TaskList"
+               relationship="right"
+               id="codetographer.views.EcumeneView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   
+    <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="codetographer.toolbars.codeMapperToolbar">
+            <command
+                  commandId="codetographer.commands.syncPackageStructure"
+                  icon="icons/Codetographer.gif"
+                  tooltip="Sync Codetographer package structure"
+                  id="codetographer.commands.toolbars.syncPackageStructureCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>

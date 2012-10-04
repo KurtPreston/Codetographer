@@ -1,0 +1,44 @@
+ <!-- saved from url=(0014)about:internet -->
+ <html lang="en">
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title>ExternalInterfaceExample</title>
+ <script language="JavaScript">
+     var jsReady = false;
+     function isReady() {
+         return jsReady;
+     }
+     function pageInit() {
+         jsReady = true;
+     }
+     function thisMovie(movieName) {
+         if (navigator.appName.indexOf("Microsoft") != -1) {
+             return window[movieName];
+         } else {
+             return document[movieName];
+         }
+     }
+     function sendToActionScript(value) {
+         thisMovie("Ecumene").sendToActionScript(value);
+     }
+ </script>
+ </head>
+ <body onload="pageInit();">
+
+     <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+             id="Ecumene" width="100%" height="100%"
+             codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab">
+         <param name="movie" value="../flash/bin/Ecumene.swf" />
+         <param name="quality" value="high" />
+         <param name="bgcolor" value="#FFFFFF" />
+         <param name="allowScriptAccess" value="sameDomain" />
+         <embed src="ExternalInterfaceExample.swf" quality="high" bgcolor="#869ca7"
+             align="middle"
+             play="true" loop="false" quality="high" allowScriptAccess="sameDomain"
+             type="application/x-shockwave-flash"
+             pluginspage="http://www.macromedia.com/go/getflashplayer">
+         </embed>
+     </object>
+ 
+ </body>
+ </html>
